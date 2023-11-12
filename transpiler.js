@@ -1,4 +1,4 @@
-// BASED on https://github.com/niutech/typescript-compile but using 1.5 transpile function
+// BASED on https://github.com/niutech/typescript-compile and https://rawgit.com/basarat/typescript-script/master/transpiler.js
 
 (function () {
     //Keep track of the number of scripts to be pulled, and fire the compiler
