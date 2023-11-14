@@ -10,7 +10,7 @@ All the development is done online in browser.
 - Go to repository settings and create a github page as static site
 - open your github page url to see your web component in typescript action.
 
-
-
-
-
+credits to my experiment: 
+1. MicroSoft for typescriptServices.js
+2. bsarat for transpiler.js
+3. polymer for providing shim allows elements written in, or compiled to, ES5 to work on native
