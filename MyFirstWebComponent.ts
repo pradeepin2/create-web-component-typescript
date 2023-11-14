@@ -1,4 +1,4 @@
-class MyFirstWebComponent extends HTMLElement {
+export default class MyFirstWebComponent extends HTMLElement {
     connectedCallback() {
       this.innerHTML = `<h1>Hi Pradeep Kumar Saraswathi</h1> `;
     }
