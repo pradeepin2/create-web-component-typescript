@@ -1,4 +1,6 @@
 # create-web-component-typescript
+
+Note: This is very inefficient way, but a possibility for to understand how ts file is compiled
 This is a sample example of creating a web component in typescript and hosting on github pages
 
 All the development is done online in browser.
