@@ -14,6 +14,74 @@
     /* disable animating resizing on initialization */
     transition: all 0s ease;
 }
+
+	  <!-- (Optional) Preload for faster first paint -->
+  <link rel="preload" as="image"
+        href="/assets/agentforce-bg.png" imagesrcset="/assets/agentforce-bg.png 1x" />
+
+  <style>
+    /* Page background using a non-blocking ::before layer */
+    :root {
+      /* Tweak overlay opacity here (0 = none, 1 = solid) */
+      --af-overlay: rgba(6, 24, 38, 0.35);
+    }
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+    body {
+      position: relative;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      color: #0b1f2b;
+      background: #071a2a; /* fallback color */
+      overflow-x: hidden;
+    }
+    /* Background image layer */
+    body::before {
+      content: "";
+      position: fixed; /* stays put while you scroll */
+      inset: 0;
+      z-index: -2;
+      background-image:
+        linear-gradient(var(--af-overlay), var(--af-overlay)),
+        url("/assets/agentforce-bg.png");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      transform: translateZ(0); /* hint for better perf on some GPUs */
+    }
+    /* Optional subtle vignette to keep edges soft */
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      background: radial-gradient(120% 120% at 50% 20%, transparent 40%, rgba(0,0,0,0.18) 100%);
+      mix-blend-mode: multiply;
+    }
+    /* Demo content wrapper */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 6rem 1.25rem;
+    }
+    .card {
+      background: rgba(255,255,255,0.72);
+      backdrop-filter: saturate(120%) blur(6px);
+      border-radius: 18px;
+      box-shadow: 0 10px 30px rgba(2, 12, 20, 0.18);
+      padding: 2rem;
+    }
+    h1 {
+      margin: 0 0 0.5rem;
+      letter-spacing: 0.3px;
+    }
+    p {
+      margin: 0.25rem 0 0;
+      line-height: 1.6;
+    }
+  </style>
  </style>
 </head>
 
