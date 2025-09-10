@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>gen ui</title>
+  <title>Agentforce Landing</title>
 <meta name="referrer" content="origin" />
  <style>
 .agentforce-messaging > .agentforce-messaging-frame[class~="minimized"] {
@@ -14,15 +14,10 @@
     /* disable animating resizing on initialization */
     transition: all 0s ease;
 }
-
-	  <!-- (Optional) Preload for faster first paint -->
-  <link rel="preload" as="image"
-        href="/assets/agentforce-bg.png" imagesrcset="/assets/agentforce-bg.png 1x" />
-
+</style>
+	
   <style>
-    /* Page background using a non-blocking ::before layer */
     :root {
-      /* Tweak overlay opacity here (0 = none, 1 = solid) */
       --af-overlay: rgba(6, 24, 38, 0.35);
     }
     html, body {
@@ -32,60 +27,57 @@
     body {
       position: relative;
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-      color: #0b1f2b;
-      background: #071a2a; /* fallback color */
-      overflow-x: hidden;
+      color: #fff;
+      background: #071a2a;
+      overflow: hidden;
     }
-    /* Background image layer */
     body::before {
       content: "";
-      position: fixed; /* stays put while you scroll */
+      position: fixed;
       inset: 0;
       z-index: -2;
       background-image:
         linear-gradient(var(--af-overlay), var(--af-overlay)),
-        url("/assets/agentforce-bg.png");
+        url("/assets/agentforce-bg.png"); /* update with actual path */
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-      transform: translateZ(0); /* hint for better perf on some GPUs */
     }
-    /* Optional subtle vignette to keep edges soft */
     body::after {
       content: "";
       position: fixed;
       inset: 0;
       z-index: -1;
       pointer-events: none;
-      background: radial-gradient(120% 120% at 50% 20%, transparent 40%, rgba(0,0,0,0.18) 100%);
+      background: radial-gradient(120% 120% at 50% 20%, transparent 40%, rgba(0,0,0,0.25) 100%);
       mix-blend-mode: multiply;
     }
-    /* Demo content wrapper */
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 6rem 1.25rem;
-    }
-    .card {
-      background: rgba(255,255,255,0.72);
-      backdrop-filter: saturate(120%) blur(6px);
-      border-radius: 18px;
-      box-shadow: 0 10px 30px rgba(2, 12, 20, 0.18);
+    /* Full-screen centered message */
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
       padding: 2rem;
     }
-    h1 {
-      margin: 0 0 0.5rem;
-      letter-spacing: 0.3px;
-    }
-    p {
-      margin: 0.25rem 0 0;
-      line-height: 1.6;
+    .hero h1 {
+      font-size: clamp(2rem, 6vw, 4rem);
+      font-weight: 700;
+      line-height: 1.2;
+      background: linear-gradient(90deg, #ffffff, #aee1ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+      max-width: 900px;
     }
   </style>
- </style>
 </head>
 
 <body>
+	<section class="hero">
+    	<h1>Click on the bottom right chat icon and experience the magic with Agentforce.</h1>
+  	</section>
 <script type='text/javascript'>
 	function initEmbeddedMessaging() {
 		try {
